@@ -65,3 +65,33 @@ for x in obj {
 }
 ```
 Transpiles to javascript for-in loop if obj is a dict and for-of if obj is any other object
+### While loop
+```
+while expression {
+ // code
+}
+```
+Transpiles to javascript while loop
+### Do-while
+```
+do {
+
+} while expression
+```
+Transpiles to javascript do-while loop
+## Easy map-filter
+```
+x = [ variable.x for variable in arr where variable.x > 5 ]
+```
+Transpiles to `const x = arr.filter( elem => elem.x > 5 ).map( elem => elem.x )`
+## Array indexing
+```
+a = 'Hello'
+print(a[1])
+```
+This prints 'e' and transpiles to `console.log(a.substring(1,2))` if a is a string
+```
+a = [1,2,3]
+print(a[1])
+```
+This prints '2' and transpiles to console.log(a[1])
