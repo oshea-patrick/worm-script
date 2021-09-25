@@ -33,3 +33,27 @@ This transpiles to
   const generated_id = a + b
   return genetrated_id
  }`
+## Conditional Statements
+### if elif else
+```
+if expression {
+ // code
+} elif expression {
+ // code
+} else {
+ // code
+}
+```
+This transpiles to the traditional javscript if / else if / and else
+### switch case
+```
+switch expression {
+ case 'case1' {
+ 
+ }
+ case 'case2' {
+ 
+ }
+}
+```
+This transpiles to the traditional javascript switch and case statement with breaks
