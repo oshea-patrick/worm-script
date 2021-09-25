@@ -49,10 +49,10 @@ This transpiles to the traditional javscript if / else if / and else
 ```
 switch expression {
  case 'case1' {
- 
+ // code
  }
  case 'case2' {
- 
+ // code
  }
 }
 ```
