@@ -15,6 +15,7 @@
 - in
 - where
 - for
+- ... any javascript reserved words
 
 ## Constant assignment
 ```
