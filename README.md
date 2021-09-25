@@ -1,5 +1,21 @@
 # worm-script
 
+## reserved words
+- if
+- elif
+- else
+- case
+- switch
+- break
+- continue
+- do
+- while
+- try
+- catch
+- in
+- where
+- for
+
 ## Constant assignment
 ```
 a = 5
