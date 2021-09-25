@@ -57,3 +57,11 @@ switch expression {
 }
 ```
 This transpiles to the traditional javascript switch and case statement with breaks
+## Iteration
+### For loop
+```
+for x in obj {
+ // code
+}
+```
+Transpiles to javascript for-in loop if obj is a dict and for-of if obj is any other object
