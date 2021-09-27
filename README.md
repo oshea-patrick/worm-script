@@ -8,6 +8,7 @@
   * [Easy Mapping](#easymap)
   * [Array Indexing](#index)
   * [Try & Catch](#try)
+  * [Operators & Aliases](#ops)
 
 ## reserved words
 - if
@@ -133,3 +134,4 @@ print(error)
 
 ```
 To add error handling, simply declare the a function that handles errors using the `onError` keyword
+### Operators and Aliases <a name="ops"/>
