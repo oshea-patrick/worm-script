@@ -124,10 +124,12 @@ print(a[1])
 This prints '2' and transpiles to console.log(a[1])
 ### Try/Catch <a name="try"/>
 ```
-try {
- // code
- catch (
- // code
- )
-}
+a = [0, 4, 5][4]
+
+onError(
+@ error
+print(error)
+)
+
 ```
+To add error handling, simply declare the a function that handles errors using the `onError` keyword
