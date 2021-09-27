@@ -6,6 +6,7 @@
   * [Conditionals](#conditional)
   * [Iterators](#iterator)
   * [Easy Mapping](#easymap)
+  * [Array Indexing](#index)
 
 ## reserved words
 - if
@@ -120,7 +121,7 @@ a = [1,2,3]
 print(a[1])
 ```
 This prints '2' and transpiles to console.log(a[1])
-### Try/Catch
+### Try/Catch <a name="index"/>
 ```
 try {
  // code
