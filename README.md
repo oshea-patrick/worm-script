@@ -135,3 +135,19 @@ print(error)
 ```
 To add error handling, simply declare the a function that handles errors using the `onError` keyword
 ### Operators and Aliases <a name="ops"/>
+```
+& and
+| or
++ plus
+- minus
+/ divide
+* multiply
+^ exponent
+// floor division
+and
+or
+is
+isnt
+===
+==
+```
