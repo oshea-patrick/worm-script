@@ -7,6 +7,7 @@
   * [Iterators](#iterator)
   * [Easy Mapping](#easymap)
   * [Array Indexing](#index)
+  * [Try & Catch](#try)
 
 ## reserved words
 - if
@@ -110,7 +111,7 @@ Transpiles to javascript do-while loop
 x = [ variable.x for variable in arr where variable.x > 5 ]
 ```
 Transpiles to `const x = arr.filter( elem => elem.x > 5 ).map( elem => elem.x )`
-## Array indexing
+## Array indexing <a name="index"/>
 ```
 a = 'Hello'
 print(a[1])
@@ -121,7 +122,7 @@ a = [1,2,3]
 print(a[1])
 ```
 This prints '2' and transpiles to console.log(a[1])
-### Try/Catch <a name="index"/>
+### Try/Catch <a name="try"/>
 ```
 try {
  // code
