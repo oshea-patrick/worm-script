@@ -1,4 +1,6 @@
 # worm-script
+## Table of Contents
+* [Constant Assignment](#constant)
 
 ## reserved words
 - if
@@ -17,7 +19,8 @@
 - for
 - ... any javascript reserved words
 
-## Constant assignment
+<a name="constant"/>
+## Constant assignment 
 ```
 a = 5
 ```
