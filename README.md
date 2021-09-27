@@ -33,15 +33,15 @@ This transpiles to `const foo = () => { return undefined }`
 ### parameters
 ```
 foo = (
-  *a
-  *b
+  @ a
+  @ b
   a + b
 )
 ```
 or
 ```
 foo = (
-  *a,b
+  @ a, b
   a + b
 )
 ```
