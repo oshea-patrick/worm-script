@@ -3,6 +3,9 @@
 * Language Reference
   * [Constant Assignment](#constant)
   * [Functions](#functions)
+  * [Conditionals](#conditional)
+  * [Iterators](#iterator)
+  * [Easy Mapping](#easymap)
 
 ## reserved words
 - if
@@ -54,7 +57,7 @@ This transpiles to
   const generated_id = a + b
   return genetrated_id
  }`
-## Conditional Statements
+## Conditional Statements <a name="conditional"/>
 ### if elif else
 ```
 if expression {
@@ -78,7 +81,7 @@ switch expression {
 }
 ```
 This transpiles to the traditional javascript switch and case statement with breaks
-## Iteration
+## Iteration <a name="iterator"/>
 ### For loop
 ```
 for x in obj {
@@ -101,7 +104,7 @@ while expression
 }
 ```
 Transpiles to javascript do-while loop
-## Easy map-filter
+## Easy map-filter <a name="easymap"/>
 ```
 x = [ variable.x for variable in arr where variable.x > 5 ]
 ```
