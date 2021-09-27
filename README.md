@@ -1,6 +1,8 @@
 # worm-script
 ## Table of Contents
-* [Constant Assignment](#constant)
+* Language Reference
+  * [Constant Assignment](#constant)
+  * [Functions](#functions)
 
 ## reserved words
 - if
@@ -19,14 +21,13 @@
 - for
 - ... any javascript reserved words
 
-<a name="constant"/>
-## Constant assignment 
+## Constant assignment <a name="constant"/>
 ```
 a = 5
 ```
 This transpiles to `const a = 5` if there is no re-assignment otherwise `let a  = 5`
 
-## Function assignment
+## Function assignment <a name="functions"/>
 The default is always to return undefined or the last declared variable
 ### no parameters
 ```
