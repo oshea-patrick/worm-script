@@ -59,7 +59,7 @@ value & value
 for-loop || while-loop
 
 //for-loop
-for constant of constant || array || value {
+for constant in constant || array || dict {
     (declaration || functionCall || function || iterator)*
 }
 
