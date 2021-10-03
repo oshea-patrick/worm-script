@@ -1,8 +1,9 @@
 // program
-(declaration || value)*
+(declaration || value || iterator)*
 
 // declaration
 constant = value || expression
+constant // translates to constant = undefined
 
 // values can be
 function     starts with a (
@@ -11,12 +12,12 @@ string       starts with '' or ""
 array        starts with a [
 dictionary   starts with a {
 regex        starts with a /
+functionCall starts with a (
 
 // function
-constant
 (
-    (* paramater declaration which is a declaration))*
-    (expression || declaration || function)*
+    (@ paramater declaration which is a declaration))*
+    ( declaration || functionCall || function || iterator)*
 
     return value or expression [optional] but if not return undefined
 )
@@ -32,9 +33,13 @@ value || value ||
 value | value ||
 value & value ||
 
-// iteration
+// iterator
 
-    //for loop
-    for constant of (constant || array || value) {
-        
-    }
+for-loop || while-loop
+
+//for-loop
+for constant of constant || array || value {
+    ( declaration || functionCall || function || iterator)*
+}
+
+//while-loop
