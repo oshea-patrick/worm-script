@@ -2,7 +2,7 @@
 ( declaration || functionCall || function || iterator)*
 
 // assignment
-constant (, constant)* = (value || expression)
+constant || constant-property (, constant || constant-property)* = (value || expression)
 
 // constant
 regex-for-constant
@@ -24,7 +24,7 @@ boolean      true or false
     (@ paramater (, paramater)* )*
     ( declaration || functionCall || function || iterator)*
 
-    return value or expression [optional] but if not return undefined
+    (return value or expression)
 )
 
 // number
@@ -53,7 +53,7 @@ value | value
 value & value
 
 // dictionary
-{ (key: value ,)* }
+{ (constant: value || expression ,)* }
 
 // iterator
 for-loop || while-loop
