@@ -1,0 +1,40 @@
+// program
+(declaration || value)*
+
+// declaration
+constant = value || expression
+
+// values can be
+function     starts with a (
+number       starts with a number
+string       starts with '' or ""
+array        starts with a [
+dictionary   starts with a {
+regex        starts with a /
+
+// function
+constant
+(
+    (* paramater declaration which is a declaration))*
+    (expression || declaration || function)*
+
+    return value or expression [optional] but if not return undefined
+)
+
+// expression
+value ||
+value * value ||
+value / value ||
+value + value ||
+value - value ||
+value && value ||
+value || value ||
+value | value ||
+value & value ||
+
+// iteration
+
+    //for loop
+    for constant of (constant || array || value) {
+        
+    }
