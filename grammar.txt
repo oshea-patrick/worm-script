@@ -5,14 +5,14 @@
 constant = value || expression
 constant // translates to constant = undefined
 
-// values can be
+// value
 function     starts with a (
 number       starts with a number
 string       starts with '' or ""
 array        starts with a [
 dictionary   starts with a {
-regex        starts with a /
 functionCall starts with a (
+boolean      true or false
 
 // function
 (
@@ -30,8 +30,9 @@ functionCall starts with a (
 "*"
 `*`
 
-array
-[]
+//array
+[(value ,)*]
+[ x for x in col where condition ]
 
 // expression
 value ||
@@ -43,6 +44,9 @@ value && value ||
 value || value ||
 value | value ||
 value & value ||
+
+// dictionary
+{ (key: value ,)* }
 
 // iterator
 
