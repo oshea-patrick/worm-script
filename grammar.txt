@@ -1,8 +1,14 @@
 // program
-(assignment || value || iterator)*
+( declaration || functionCall || function || iterator)*
 
 // assignment
 constant (, constant)* = (value || expression)
+
+// constant
+regex-for-constant
+
+// constant-property
+regex-for-constant(.regex-for-constant)+
 
 // value
 function     starts with a (
@@ -15,26 +21,28 @@ boolean      true or false
 
 // function
 (
-    (@ paramater declaration which is a declaration))*
+    (@ paramater (, paramater)* )*
     ( declaration || functionCall || function || iterator)*
 
     return value or expression [optional] but if not return undefined
 )
 
-//number
+// number
 [0-9]+(.[0-9]*)
 
-//string
+// string
 '*'
 "*"
 `*`
 
-//array
+// array
 [(value ,)*]
 [ x for x in col where condition ]
 
 // expression
 value
+constant
+constant-property
 value * value
 value / value
 value + value
@@ -52,7 +60,10 @@ for-loop || while-loop
 
 //for-loop
 for constant of constant || array || value {
-    ( declaration || functionCall || function || iterator)*
+    (declaration || functionCall || function || iterator)*
 }
 
 //while-loop
+while expression {
+ (declaration || functionCall || function || iterator)*   
+}
