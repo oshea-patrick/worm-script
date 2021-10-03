@@ -1,9 +1,8 @@
 // program
-(declaration || value || iterator)*
+(assignment || value || iterator)*
 
-// declaration
-constant = value || expression
-constant // translates to constant = undefined
+// assignment
+constant (, constant)* = (value || expression)
 
 // value
 function     starts with a (
@@ -35,21 +34,20 @@ boolean      true or false
 [ x for x in col where condition ]
 
 // expression
-value ||
-value * value ||
-value / value ||
-value + value ||
-value - value ||
-value && value ||
-value || value ||
-value | value ||
-value & value ||
+value
+value * value
+value / value
+value + value
+value - value
+value && value
+value || value
+value | value
+value & value
 
 // dictionary
 { (key: value ,)* }
 
 // iterator
-
 for-loop || while-loop
 
 //for-loop
