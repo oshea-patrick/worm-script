@@ -12,7 +12,7 @@ constant || constant-property (, constant || constant-property)* (= value)
 regex-for-constant
 
 // constant-property
-regex-for-constant(.regex-for-constant)+
+regex-for-constant(.regex-for-constant | [regex-for-constant | number | string] )+
 
 // value
 function | number| string | array | dictionary | boolean | functionCall | constant | constant-property
