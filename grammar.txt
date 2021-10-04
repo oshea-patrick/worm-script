@@ -1,6 +1,9 @@
 // program
-( assignment || functionCall || iterator)*
+( script )*
 EOF
+
+// script
+assignment || functionCall || iterator
 
 // assignment
 constant || constant-property (, constant || constant-property)* (= value)
@@ -12,15 +15,15 @@ regex-for-constant
 regex-for-constant(.regex-for-constant)+
 
 // value
-function| number| string | array | dictionary | boolean | functionCall | constant | constant-property
+function | number| string | array | dictionary | boolean | functionCall | constant | constant-property
 
 // boolean
-true | false |conditional-expression
+true | false | conditional-expression
 
 // function
 (
     (@ paramater (, paramater)* )*
-    ( assignment || functionCall || iterator)*
+    ( script )*
 
     (return value or expression)
 )
@@ -48,11 +51,14 @@ value ( (&|&&||||||or|and|>|<|is|isnt) (value | conditional-expression) )+
 for-loop || while-loop
 
 //for-loop
-for constant in constant || array || dict {
-    (declaration || functionCall || function || iterator)*
+for constant in constant || constant-property || array || dict {
+    (script)+
 }
+
+// functionCall
+regex-for-constant(value (, value)*)
 
 //while-loop
 while conditional-expression {
- (declaration || functionCall || function || iterator)*   
+ (script)+  
 }
