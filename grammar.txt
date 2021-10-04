@@ -1,5 +1,6 @@
 // program
 ( declaration || functionCall || function || iterator)*
+EOF
 
 // assignment
 constant || constant-property (, constant || constant-property)* = (value || expression)
