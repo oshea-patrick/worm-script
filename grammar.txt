@@ -36,13 +36,10 @@ true | false |conditional-expression
 [value ( (, value)* | for ( constant | constant-assugnment ) in value where conditional-expression )]
 
 // math-expression
-value ( [*|/|//|+|-|^|%] (value | math-expression) )+
+value ( [*|/|//|+|-|^|%|==] (value | math-expression) )+
 
 // conditional-expression
-value && value
-value || value
-value | value
-value & value
+value ( (&|&&||||||or|and|>|<|is|isnt) (value | conditional-expression) )+
 
 // dictionary
 { (constant: value || expression ,)* }
@@ -56,6 +53,6 @@ for constant in constant || array || dict {
 }
 
 //while-loop
-while expression {
+while conditional-expression {
  (declaration || functionCall || function || iterator)*   
 }
