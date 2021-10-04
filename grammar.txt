@@ -22,10 +22,9 @@ true | false | conditional-expression
 
 // function
 (
-    (@ paramater (, paramater)* )*
+    (@ constant (, constant)* )*
     ( script )*
-
-    (return value or expression)
+    (return value)
 )
 
 // number
@@ -45,7 +44,7 @@ value ( [*|/|//|+|-|^|%|==] (value | math-expression) )+
 value ( (&|&&||||||or|and|>|<|is|isnt) (value | conditional-expression) )+
 
 // dictionary
-{ (constant: value || expression ,)* }
+{ (constant : value ,)* }
 
 // iterator
 for-loop || while-loop
