@@ -3,7 +3,7 @@
 EOF
 
 // script
-assignment || functionCall || iterator
+assignment || functionCall || iterator || if-statement
 
 // assignment
 constant || constant-property (, constant || constant-property)* (= value)
@@ -58,7 +58,12 @@ for constant in constant || constant-property || array || dict {
 // functionCall
 regex-for-constant(value (, value)*)
 
-//while-loop
+// while-loop
 while conditional-expression {
  (script)+  
+}
+
+// if-statement
+if conditional-statement {
+    (script)+
 }
