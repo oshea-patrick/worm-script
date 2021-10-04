@@ -3,7 +3,7 @@
 EOF
 
 // assignment
-constant || constant-property (, constant || constant-property)* = value
+constant || constant-property (, constant || constant-property)* (= value)
 
 // constant
 regex-for-constant
@@ -12,20 +12,10 @@ regex-for-constant
 regex-for-constant(.regex-for-constant)+
 
 // value
-function     starts with a (
-number       starts with a number
-string       starts with '' or ""
-array        starts with a [
-dictionary   starts with a {
-boolean
-functionCall starts with a (
-constant
-constant property
+function| number| string | array | dictionary | boolean | functionCall | constant | constant-property
 
 // boolean
-true
-false
-conditional-expression
+true | false |conditional-expression
 
 // function
 (
@@ -39,20 +29,14 @@ conditional-expression
 [0-9]+(.[0-9]*)
 
 // string
-'*'
-"*"
-`*`
+'*' | "*" | `*`
 
 // array
-[(value ,)*]
-[ x for x in col where condition ]
+[(value ,)*] | [ x for x in col where condition ]
+[value ( (, value)* | for ( constant | constant-assugnment ) in value where conditional-expression )]
 
 // math-expression
-value * value
-value / value
-value // value
-value + value
-value - value
+value ( [*|/|//|+|-|^|%] (value | math-expression) )+
 
 // conditional-expression
 value && value
