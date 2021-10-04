@@ -1,9 +1,9 @@
 // program
-( declaration || functionCall || function || iterator)*
+( assignment || functionCall || iterator)*
 EOF
 
 // assignment
-constant || constant-property (, constant || constant-property)* = (value || expression)
+constant || constant-property (, constant || constant-property)* = value
 
 // constant
 regex-for-constant
@@ -17,13 +17,20 @@ number       starts with a number
 string       starts with '' or ""
 array        starts with a [
 dictionary   starts with a {
+boolean
 functionCall starts with a (
-boolean      true or false
+constant
+constant property
+
+// boolean
+true
+false
+conditional-expression
 
 // function
 (
     (@ paramater (, paramater)* )*
-    ( declaration || functionCall || function || iterator)*
+    ( assignment || functionCall || iterator)*
 
     (return value or expression)
 )
@@ -40,14 +47,14 @@ boolean      true or false
 [(value ,)*]
 [ x for x in col where condition ]
 
-// expression
-value
-constant
-constant-property
+// math-expression
 value * value
 value / value
+value // value
 value + value
 value - value
+
+// conditional-expression
 value && value
 value || value
 value | value
