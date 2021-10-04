@@ -63,7 +63,20 @@ while conditional-expression {
  (script)+  
 }
 
-// if-statement
-if conditional-statement {
+// conditional-statement
+conditional-statement {
     (script)+
 }
+
+// if-statement
+[
+(if conditional-statement)+ 
+(elif-statement)*
+(else=statement)
+]+
+
+// elif-statement
+(elif conditional-statment)+
+
+// else-statement
+else conditional-statement
