@@ -1,8 +1,13 @@
 // input string
-const input = `j = {{"test" : "jam"}, {}, {}}
+const input = ` j = [1,2,3]
 for iter in j {
-    print(iter)
-    y = 100.65
+    for k in iter {
+        if 5 > 4 {
+
+        } else {
+
+        }
+    }
 }
 `
 // tokens
