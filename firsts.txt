@@ -18,7 +18,12 @@ plus +
 minus -
 carrot ^
 modulus %
-
+amp &
+line |
+less-than <
+grtr-than >
+left-bracket {
+right-bracket }
 
 
 
@@ -28,7 +33,16 @@ false
 for
 in
 where
+or
+and
+is
+isnt
+while
+if
+elif
+else
 
 reg-ex:
 number ->
 constant ->
+string ->
