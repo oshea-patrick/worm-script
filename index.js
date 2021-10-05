@@ -225,5 +225,11 @@ const parse = () => {
     })
 }
 
+const interpret = () => {
+    while (tokens.length > 0) {
+        console.log('yolo')
+    }
+}
+
 parse()
-console.log(tokens)
+interpret()

@@ -1,0 +1,103 @@
+//program F(conditional-statement) = N/A
+-> script
+-> E
+
+//script F(script)=[F(assignment), F(functionCall), F(iterator), F(if-statement)]
+-> assignment // constant
+-> functionCall // constant or await
+-> iterator // for or while
+-> if-statement // if
+
+//assignment F(assignment) = constant
+-> constant // constant
+-> constant-property // constant
+
+//constant F(constant) = constant
+-> regex-for-constant // resolves
+
+//constant-property F(constant-property) = [constant, number, string]
+-> regex-for-constant // constant
+-> number // number
+-> string // string
+
+//value F(value) = [(, new, async, number, string, [, {, true, false, constant, await]
+-> function // new or async or (
+-> number // number
+-> string // string
+-> array // [
+-> dictionary // {
+-> boolean // true or false or constant
+-> functionCall // constant or await
+-> constant // constant
+-> constant-property // constant
+
+//boolean F(boolean) = [true, false, F(value)]
+-> true // resolves
+-> false // resolves
+-> conditional-expression // if
+
+//function F(function) = [new, async, ( ]
+-> constant
+-> script
+-> value
+
+// number F(number) = number
+-> [0-9]+(.[0-9]*)
+-> math-expression
+
+// string F(string) = string
+-> 'regex-for-string'
+-> "regex-for-string"
+-> `regex-for-string`
+
+// array F(array) = [
+-> value
+-> constant
+-> constant-assignment
+-> conditional-expression
+
+// math-expression F(math-expression) = value
+-> value
+-> math-expression
+
+// conditional-expression F(conditional-expression) = value
+-> value
+-> conditional-expression
+
+// dictionary F(dictionary) = {
+-> constant
+-> value
+
+// iterator F(iterator) = [for, while]
+-> for-loop
+-> while-loop
+
+//for-loop F(for-loop) = for
+-> constant
+-> constant-property
+-> array
+-> dict
+-> script
+
+// functionCall F(functionCall) = [constant, await]
+-> regex-for-constant
+-> value
+
+// while-loop F(while) = while
+-> conditional-expression
+-> script
+
+// conditional-statement F(conditional-statement) = N/A
+-> conditional-expression
+-> script
+
+// if-statement F(if-statement) = if
+-> conditional-statement
+-> elif-statement
+-> else=statement
+
+// elif-statement F(elif-statement) = elif
+-> conditional-statment
+
+// else-statement F(else-statement) = else
+-> conditional-statement
