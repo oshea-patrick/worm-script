@@ -1,8 +1,9 @@
 // input string
-const input = `
-
-'this is a test my guf'
-else if or and &&&
+const input = `j = {{"test" : "jam"}, {}, {}}
+for iter in j {
+    print(iter)
+    y = 100.65
+}
 `
 // tokens
 const QUOT1 = '"'
@@ -22,12 +23,15 @@ const reserved_words = [
     'if',
     'elif',
     'else',
-    'return'
+    'return',
+    'new',
+    'async',
+    'await'
 ]
 
 const reserved_tokens = {
-    ',' : 'COMMA',
-    '=' : 'EQUAL',
+    ',' : 'comma',
+    '=' : 'equal',
     '(' : 'left-paren',
     ')' : 'right-paren',
     '@' : 'at',
@@ -45,7 +49,8 @@ const reserved_tokens = {
     '<' : 'less-than',
     '>' : 'grtr-than',
     '{' : 'left-bracket',
-    '}' : 'right-bracket'
+    '}' : 'right-bracket',
+    ':' : 'dict-sep'
 }
 
 
@@ -107,17 +112,93 @@ const parse = () => {
                 continue
             } else if (char === '\n') {
                 line++
+                if (buffer.length > 0) {
+                    if (new RegExp('[0-9]+(?<=[0-9])(\.[0-9]*)?').test(buffer)) {
+                        tokens.push({
+                            type: 'number',
+                            value: parseFloat(buffer)
+                        })
+                    } else if (new RegExp('[a-zA-Z_$][^\\w$]*').test(buffer)) {
+                        tokens.push({
+                            type: 'constant',
+                            value: buffer
+                        })
+                    }
+                }
                 buffer = ''
-                continue
-            } else if (char === ' ') {
                 tokens.push({
                     type: 'white-space'
+                })
+                continue
+            } else if (char === ' ') {
+                // other charcaters besides space at end
+                if (buffer.length > 1) {
+                    const othValue = buffer.substring(0, buffer.length-1)
+                    if (new RegExp('[0-9]+(?<=[0-9])(\.[0-9]*)?').test(othValue)) {
+                        tokens.push({
+                            type: 'number',
+                            value: parseFloat(othValue)
+                        })
+                    } else if (new RegExp('[a-zA-Z_$][^\\w$]*').test(othValue)) {
+                        tokens.push({
+                            type: 'constant',
+                            value: othValue
+                        })
+                    }
+                }
+                tokens.push({
+                    type: 'white-space'
+                })
+                buffer = ''
+                continue
+            } else if (char === ',') {
+                // other charcaters besides comma at end
+                if (buffer.length > 1) {
+                    const othValue = buffer.substring(0, buffer.length-1)
+                    if (new RegExp('[0-9]+(?<=[0-9])(\.[0-9]*)?').test(othValue)) {
+                        tokens.push({
+                            type: 'number',
+                            value: parseFloat(othValue)
+                        })
+                    } else if (new RegExp('[a-zA-Z_$][^\\w$]*').test(othValue)) {
+                        tokens.push({
+                            type: 'constant',
+                            value: othValue
+                        })
+                    }
+                }
+                tokens.push({
+                    type: 'comma'
                 })
                 buffer = ''
                 continue
             } else if (reserved_words.findIndex(elem => elem === buffer) !== -1) {
                 tokens.push({
                     type: reserved_words.find(elem => elem === buffer)
+                })
+                buffer = ''
+                continue
+            } else if (char in reserved_tokens) {
+                if (buffer.length > 1) {
+                    const othValue = buffer.substring(0, buffer.length-1)
+                    // in a number atm
+                    if (new RegExp('[0-9]+').test(othValue)) {
+                        continue
+                    }
+                    else if (new RegExp('[0-9]+(?<=[0-9])(\.[0-9]*)?').test(othValue)) {
+                        tokens.push({
+                            type: 'number',
+                            value: parseFloat(othValue)
+                        })
+                    } else if (new RegExp('[a-zA-Z_$][^\\w$]*').test(othValue)) {
+                        tokens.push({
+                            type: 'constant',
+                            value: othValue
+                        })
+                    }
+                }
+                tokens.push({
+                    type: reserved_tokens[char]
                 })
                 buffer = ''
                 continue
