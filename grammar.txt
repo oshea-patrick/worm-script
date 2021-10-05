@@ -28,7 +28,7 @@ true | false | conditional-expression
 )
 
 // number
-[0-9]+(.[0-9]*)
+[0-9]+(.[0-9]*) | math-expression
 
 // string
 '*' | "*" | `*`
@@ -38,10 +38,10 @@ true | false | conditional-expression
 [value ( (, value)* | for ( constant | constant-assugnment ) in value where conditional-expression )]
 
 // math-expression
-value ( [*|/|//|+|-|^|%|==] (value | math-expression) )+
+value ( [*|/|//|+|-|^|%] (value | math-expression) )+
 
 // conditional-expression
-value ( (&|&&||||||or|and|>|<|is|isnt) (value | conditional-expression) )+
+value ( (&|&&||||||or|and|>|<|is|isnt|==) (value | conditional-expression) )+
 
 // dictionary
 { (constant : value ,)* }
