@@ -31,11 +31,10 @@ true | false | conditional-expression
 [0-9]+(.[0-9]*) | math-expression
 
 // string
-'*' | "*" | `*`
+'regex-for-string' | "regex-for-string" | `regex-for-string`
 
 // array
-[(value ,)*] | [ x for x in col where condition ]
-[value ( (, value)* | for ( constant | constant-assugnment ) in value where conditional-expression )]
+[ (value ( (, value)* | for ( constant | constant-assugnment ) in value where conditional-expression ) )]
 
 // math-expression
 value ( [*|/|//|+|-|^|%] (value | math-expression) )+
@@ -44,7 +43,7 @@ value ( [*|/|//|+|-|^|%] (value | math-expression) )+
 value ( (&|&&||||||or|and|>|<|is|isnt|==) (value | conditional-expression) )+
 
 // dictionary
-{ (constant : value ,)* }
+{ (constant : value (, constant : value)*) }
 
 // iterator
 for-loop || while-loop
@@ -55,7 +54,7 @@ for constant in constant || constant-property || array || dict {
 }
 
 // functionCall
-regex-for-constant(value (, value)*)
+regex-for-constant( (value (, value)* ) )
 
 // while-loop
 while conditional-expression {
