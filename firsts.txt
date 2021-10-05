@@ -1,1 +1,34 @@
-test
+tokens:
+EOF
+whitespace / newline
+comma ,
+equal =
+left-paren (
+right-paren )
+at @
+quot1 `
+quot2 '
+quot3 "
+left-square [
+right-sqaure ]
+period .
+star *
+slash /
+plus +
+minus -
+carrot ^
+modulus %
+
+
+
+
+reserved words:
+true
+false
+for
+in
+where
+
+reg-ex:
+number ->
+constant ->
