@@ -39,6 +39,7 @@ while
 if
 elif
 else
+return
 
 reg-ex:
 number -> /[0-9]+(?<=[0-9])(\.[0-9]*)?
