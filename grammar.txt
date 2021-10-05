@@ -21,7 +21,7 @@ function | number| string | array | dictionary | boolean | functionCall | consta
 true | false | conditional-expression
 
 // function
-(
+(new | async) (
     (@ constant (, constant)* )*
     ( script )*
     (return value)
@@ -54,7 +54,7 @@ for constant in constant || constant-property || array || dict {
 }
 
 // functionCall
-regex-for-constant( (value (, value)* ) )
+(await) regex-for-constant( (value (, value)* ) )
 
 // while-loop
 while conditional-expression {
